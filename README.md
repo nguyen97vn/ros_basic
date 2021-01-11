@@ -45,3 +45,35 @@ Parameter:
     iso8601 dates
     list
     base64-encoded binary data
+
+5. Cách sử dụng roslaunch
+  Để sử dụng roslaunch, trước tiên ta phải tạo ra một file .launch, file này hữu dụng cho việc thi hành nhiều node một lúc.
+  Các viết một file launch:
+  <launch>
+    // khai báo các tham số
+    <arg name="name_thamso" default="$(path) />
+    // khai báo node
+    <node pkg="ten_package" name="ten_node" type="node" args="$(path)" />
+    // khai báo một file launch khác
+    <include file="$(path)">
+                           
+  </launch>
+Để thi hành file launch, thực hiện câu lệnh:
+  roslaunh tên-package file.launch
+
+6. Tạo một msg và srv
+  msg file:
+   ví dụ:
+   $ roscd learning_basic // chuyển đến package có tên learning_basic
+   $ mkdir msg // tạo một thư mục có tên msg
+   $ echo "int64 num" > msg/Num.msg  // tạo một file msg có tên là Num.msg trong thư mục msg và truyền vào đó int64 num
+  Tiếp theo, mở tệp package.xml, thêm vào 2 dòng:
+      <build_depend>message_generation</build_depend>
+      <exec_depend>message_runtime</exec_depend>
+   mở tệp CMakelist.txt, thêm message_generation vào trong phần find_package
+   Như vậy là ta đã tạo trong smg file.
+  srv file:
+  tương tự như smg, để sử dụng smg và srv file, xem chi tết trên trang:
+  http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv
+  
+  
