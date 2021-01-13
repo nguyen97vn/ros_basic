@@ -76,4 +76,7 @@ Parameter:
   tương tự như smg, để sử dụng smg và srv file, xem chi tết trên trang:
   http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv
   
+  7. Rosdep
+  rosdep install --from-paths src --ignore-src -r -y
+  
   
